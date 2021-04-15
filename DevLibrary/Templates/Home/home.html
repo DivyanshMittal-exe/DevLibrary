@@ -1,6 +1,8 @@
+{% load static %}
+
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static Home/style.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
     Homepage
@@ -11,8 +13,8 @@
         <img src="" alt="">
         <nav>
             <ul class = "nvlinks">
-                <li><a href="../SignUp/SignUp.html">Sign up</a></li>                
-                <li><a href="../Login/Login.html">Login</a></li>
+                <li><a href="signup/">Sign up</a></li>                
+                <li><a href="login/">Login</a></li>
             </ul>
         </nav>
     </header>
