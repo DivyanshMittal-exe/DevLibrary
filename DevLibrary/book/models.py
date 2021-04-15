@@ -10,3 +10,4 @@ class Book(models.Model):
     ISBN = models.CharField(max_length = 13,null = False) #as int was small, take as char
     Location = models.TextField()
     Available = models.BooleanField(default=True)
+    Comments = models.TextField(null=True)

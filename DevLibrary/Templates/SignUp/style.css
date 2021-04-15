@@ -39,3 +39,15 @@ header{
 .nvlinks a:hover{
     color: #2b768d;
 }
+
+.frm{
+    border: olive 2px solid;
+    padding: 10% 10%;
+    background-color: salmon;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
