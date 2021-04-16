@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="{% static Home/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Home/style.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
     Homepage
@@ -13,12 +13,44 @@
         <img src="" alt="">
         <nav>
             <ul class = "nvlinks">
-                <li><a href="signup/">Sign up</a></li>                
+
+                {% if user.is_authenticated %}
+                <li>Hello, {{user.username}}</li>                
+                <li><a href="logout/">Logout</a></li>
+                {% else %}
+                <li><a href="register/">Sign up</a></li>                
                 <li><a href="login/">Login</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
+    <div class = "searchbar">
+        <form>
+         <input type="text" placeholder="Search...">
+         <button type="submit">Submit</button>
+        </form>
+    </div>
 
+    <div>
+    <table class="table" border = "2px solid black">
+        <thead>
+            <tr>
+                <th style = "padding: 16px; width:20%;">Tile</th>
+                <th style = "padding: 16px; width:20%;">Author</th>
+                <th style = "padding: 16px; width:20%;">Publisher</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in Books%}
+            <tr>
+                <td scope="row"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
 
 
     <footer>

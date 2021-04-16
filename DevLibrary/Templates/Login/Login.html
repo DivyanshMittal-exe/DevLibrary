@@ -1,6 +1,8 @@
+{% load static %}
+
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'Login/style.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         Sign Up
@@ -11,17 +13,22 @@
         <img src="" alt="">
         <nav>
             <ul class = "nvlinks">                
-                <li><a href="signup/">SignUp instead</a></li>
+                <li><a href="#">SignUp instead</a></li>
             </ul>
         </nav>
     </header>
 
     <div class = "frm">
-    <form action="">
-        <label for="mail">Email:</label>
-        <input type="text" name="mail" id="mail"><br><br>
+    <form action="login" method = "POST">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"><br><br>
         <label for="pswd">Password:</label>
-        <input type="text" name="pswd" id="pswd"><br><br>
+        <input type="password" name="pswd" id="pswd"><br><br>
+        <input type="Submit" >
     </form>
+       {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
     </div>
 </body>
