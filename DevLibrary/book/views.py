@@ -20,8 +20,8 @@ def book_from_view(request,*args,**kwargs):
 
 
 # Create your views here.
-def book_view(request,*args,**kwargs):
-    obj=Book.objects.get(id=1)
+def book_view(request,id,*args,**kwargs):
+    obj=Book.objects.get(id=id)
 
     content={
         "title":obj.Title,
@@ -30,7 +30,8 @@ def book_view(request,*args,**kwargs):
         "gen":obj.Genre,
         "isbn":obj.ISBN,
         "loc":obj.Location,
-        "comm":obj.Comments
+        "comm":obj.Comments,
+        "avlbl":obj.Available
     }
 
     return render(request,"Books/book.html",content)

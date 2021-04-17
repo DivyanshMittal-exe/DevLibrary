@@ -1,25 +1,81 @@
-{% extends "./Books.html" % }
-{% block content %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{% static 'book/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+    Homepage
+</title>
+</head>
+<body>
+    <header>
+        <img src="" alt="">
+        <nav>
+            <ul class = "nvlinks">
+
+                {% if user.is_authenticated %}
+                <li>Hello, {{user.username}}</li>                
+                <li><a href="/logout/">Logout</a></li>
+                {% else %}
+                <li><a href="/register/">Sign up</a></li>                
+                <li><a href="/login/">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div class = "mn">
+
+
+
     <ul>
         <li>
-        <p>Title</p>
-        <p>{{title}}</p>
+        <p>Title: {{title}}</p>
     </li>
   <li>
-    <p>Author</p>
-    <p>{{auth}}</p>
+    <p>Author: {{auth}}</p>
   </li>
   <li>
-        <p>Publisher</p>
-        <p>{{pub}}</p>
+        <p>Publisher: {{pub}}</p>
     </li>
       <li>
-        <p>Genre</p>
-        <p>{{gen}}</p>
+        <p>Genre:{{gen}}</p>
     </li>
     <li>
-        <p>ISBN</p>
-        <p>{{isbn}}</p>
+        <p>ISBN: {{isbn}}</p>
     </li>
+        <li>
+        <p>Comments: {{comm}}</p>
+    </li>
+
+    {% if user.is_authenticated and avlbl %}
+        <li>
+          <form action ="issue" method="POST">
+          <button type="Submit" style="float:right; margin: 30px; padding:10px;">Issue Book</button>
+          </form>
+        </li>
+    {% elif avlbl == 'False' %}
+      <li>
+          <form action ="issue" method="POST">
+          <button type="Submit" style="float:right; margin: 30px; padding:10px;" disabled>Issue Book</button>
+          </form>
+        </li>
+    {% elif user.is_authenticated == 'False' %}
+      <li>
+          <form action ="issue" method="POST">
+          <button type="Submit" style="float:right; margin: 30px; padding:10px;" disabled>Login first</button>
+          </form>
+        </li>
+
+    {% endif %}
     </ul>
-{% endblock %}
+    </div>
+
+
+    <footer>
+        
+    </footer>
+</body>
+    
+

@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="{% static 'book/style.css' %}">
+    <link rel="stylesheet" href="{% static 'User/style.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
     Homepage
@@ -14,26 +14,25 @@
         <nav>
             <ul class = "nvlinks">
 
-                {% if user.is_authenticated %}
                 <li>Hello, {{user.username}}</li>                
                 <li><a href="/logout/">Logout</a></li>
-                {% else %}
-                <li><a href="/register/">Sign up</a></li>                
-                <li><a href="/login/">Login</a></li>
-                {% endif %}
+
             </ul>
         </nav>
     </header>
-    <div class = "mn">
-
-
-
-    {% block content %}
-    {% endblock %}  
+    <div class="usr-dta">
+        <ul>
+        <li>
+        <p>Username: {{user.username}}</p>
+        
+    </li>
+  <li>
+    <p>Email: {{user.email}}</p>
+   
+  </li>
+  
+    </ul>
     </div>
 
 
-    <footer>
-        
-    </footer>
-</body>
+ </body>

@@ -3,6 +3,11 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 
 # Create your views here.
+def user_view(request,*args,**kwargs):
+        return render(request,"User/User.html")
+
+
+
 def logout_view(request,*args,**kwargs):
     auth.logout(request)
     return redirect('/')
