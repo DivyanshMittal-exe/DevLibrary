@@ -1,10 +1,39 @@
+{% load static %}
 
-{% extends './Books.html' %}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="{% static 'book/nstyle.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+    Homepage
+</title>
+</head>
+<body>
+    <header>
+        <img src="" alt="">
+        <nav>
+            <ul class = "nvlinks">
 
- {% block content %}
-<form method = "POST"> {% csrf_token %}
-{{form.as_p}}
-<input type = 'submit' value = ' Save' />
+                {% if user.is_authenticated %}
+                <li>Hello, {{user.username}}</li>                
+                <li><a href="/logout/">Logout</a></li>
+                {% else %}
+                <li><a href="/register/">Sign up</a></li>                
+                <li><a href="/login/">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div class = "newbook" style="display:block;margin-left:auto;">
+        <form method = "POST"> {% csrf_token %}
+        {{form.as_p}}
+        <input type = 'submit' value = 'Add New Book' class= "butn"/>
+        </form>
+    </div>
 
-</form>
-{% endblock %}
+
+    <footer>
+        
+    </footer>
+</body>
+

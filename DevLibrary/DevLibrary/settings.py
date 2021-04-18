@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     #own
     'book',
     'Home',
-    'users'
+    'users',
+    'bookissue'
 ]
 
 STATIC_URL = '/static/'

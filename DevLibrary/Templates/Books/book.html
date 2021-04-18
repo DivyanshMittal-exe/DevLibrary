@@ -48,22 +48,27 @@
         <li>
         <p>Comments: {{comm}}</p>
     </li>
+    <li>
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    </li>
 
     {% if user.is_authenticated and avlbl %}
         <li>
-          <form action ="issue" method="POST">
+          <form action ="/issue/{{id}}" method="POST">{% csrf_token %}
           <button type="Submit" style="float:right; margin: 30px; padding:10px;">Issue Book</button>
           </form>
         </li>
     {% elif avlbl == 'False' %}
       <li>
-          <form action ="issue" method="POST">
+          <form action ="/issue" method="POST">{% csrf_token %}
           <button type="Submit" style="float:right; margin: 30px; padding:10px;" disabled>Issue Book</button>
           </form>
         </li>
     {% elif user.is_authenticated == 'False' %}
       <li>
-          <form action ="issue" method="POST">
+          <form method="POST">{% csrf_token %}
           <button type="Submit" style="float:right; margin: 30px; padding:10px;" disabled>Login first</button>
           </form>
         </li>
@@ -71,7 +76,7 @@
     {% endif %}
     </ul>
     </div>
-
+    
 
     <footer>
         

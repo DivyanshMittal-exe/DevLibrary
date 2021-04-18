@@ -34,6 +34,7 @@ urlpatterns = [
     path('book/', book_view, name='book'),
     path('create/', book_from_view, name='form'),
     path('user/', user_view, name='user'),
-    path('book/<int:id>', book_view, name='user'),
+    path('book/<int:id>', book_view, name='bview'),
+    path('issue/<int:id>', book_view, name='bview'),
     path('admin/', admin.site.urls)
 ]
