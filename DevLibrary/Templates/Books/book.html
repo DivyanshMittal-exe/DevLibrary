@@ -54,7 +54,7 @@
         {% endfor %}
     </li>
 
-    {% if user.is_authenticated and avlbl %}
+    {% if user.is_authenticated and avlbl and req %}
         <li>
           <form action ="/issue/{{id}}" method="POST">{% csrf_token %}
           <button type="Submit" style="float:right; margin: 30px; padding:10px;">Issue Book</button>

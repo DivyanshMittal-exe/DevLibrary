@@ -15,19 +15,19 @@ class Book(models.Model):
 
 class Issue(models.Model):
     Book_state = [
-        ('Req', 'Requested'),
-        ('Is', 'Issued'),
-        ('Ret', 'Returned'),
-        ('N', 'NA')
+        ('Requested', 'Requested'),
+        ('Issued', 'Issued'),
+        ('Returned', 'Returned'),
+        ('NA', 'NA')
     ]
     Title = models.CharField(max_length = 120,null = False)
     BookID = models.IntegerField(null = False)
     User = models.CharField(max_length=50)
-    DoI=models.DateField(auto_now_add=True)
-    DoD=models.DurationField(default = datetime.timedelta(days=7))
+    DoI=models.DateField(auto_now_add=False)
+    DoD=models.DateField(auto_now_add=False)
     State = models.CharField(
         max_length=9,
         choices = Book_state,
-        default = 'Req',
+        default = 'Requested',
     )
     Comments = models.TextField(null=True)

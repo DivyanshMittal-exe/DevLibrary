@@ -27,12 +27,20 @@ def book_from_view(request,*args,**kwargs):
 def book_view(request,id,*args,**kwargs):
     obj=Book.objects.get(id=id)
     ID = id
+    req=1
     if request.method =='POST':
         title = obj.Title
         bookid= obj.id 
         user = request.user 
-        iss = Issue(Title=title,BookID=bookid,User=user,DoI=datetime.date.today(),DoD = datetime.timedelta(7))
+        iss = Issue(
+            Title=title,
+            BookID=bookid,
+            User=user,
+            DoI=datetime.date.today(),
+            DoD=datetime.date.today()+datetime.timedelta(days=7)
+            )
         iss.save()
+        req = 0
         messages.info(request, 'Book issue request placed')
         content={
             "title":obj.Title,
@@ -43,9 +51,10 @@ def book_view(request,id,*args,**kwargs):
             "loc":obj.Location,
             "comm":obj.Comments,
             "avlbl":obj.Available,
-            "id":obj.id
+            "id":obj.id,
+            "req":req
         }
-        
+        obj.Available = False
         return render(request,"Books/book.html",content)
     else:
         content={
@@ -57,6 +66,7 @@ def book_view(request,id,*args,**kwargs):
             "loc":obj.Location,
             "comm":obj.Comments,
             "avlbl":obj.Available,
-            "id":obj.id
+            "id":obj.id,
+            "req":req
         }
         return render(request,"Books/book.html",content)

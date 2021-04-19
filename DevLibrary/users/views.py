@@ -1,10 +1,12 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
+from book.models import Issue
 
 # Create your views here.
 def user_view(request,*args,**kwargs):
-        return render(request,"User/User.html")
+    bks= Issue.objects.all()
+    return render(request,"User/User.html",{"bks":bks})
 
 
 

@@ -32,6 +32,36 @@
   </li>
   
     </ul>
+    <br>
+    <br>
+
+    <table class="table" border = "2px solid white" style="margin-left:auto;margin-right:auto;width:90%;color:white">
+        
+        <caption>My Books</caption>
+        <thead>
+            <tr>
+                <th style = "padding: 16px; width:20%;">Title</th>
+                <th style = "padding: 16px; width:20%;">Date of Issue</th>
+                <th style = "padding: 16px; width:20%;">Return Date</th>
+                <th style = "padding: 16px; width:20%;">State</th>
+                <th style = "padding: 16px; width:20%;">Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bk in bks %}
+            {% if bk.User == user.username %}
+            <tr>
+                <td scope="row" style = "padding: 16px; width:20%;">{{bk.Title}}</td>
+                <td style = "padding: 16px; width:20%;">{{bk.DoI}}</td>
+                <td style = "padding: 16px; width:20%;">{{bk.DoD}}</td>
+                <td style = "padding: 16px; width:20%;">{{bk.State}}</td>
+                <td style = "padding: 16px; width:20%;">{{bk.Comments}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
     </div>
 
 
