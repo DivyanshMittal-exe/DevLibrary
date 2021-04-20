@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <img src="" alt="">
+        <a href="/"><img src="{% static 'DevLibrary.png' %}" alt="" width = "100"></a>
         <nav>
             <ul class = "nvlinks">
 
@@ -60,16 +60,16 @@
           <button type="Submit" style="float:right; margin: 30px; padding:10px;">Issue Book</button>
           </form>
         </li>
-    {% elif avlbl == 'False' %}
-      <li>
-          <form action ="/issue" method="POST">{% csrf_token %}
-          <button type="Submit" style="float:right; margin: 30px; padding:10px;" disabled>Issue Book</button>
-          </form>
-        </li>
-    {% elif user.is_authenticated == 'False' %}
-      <li>
+        {% elif user.is_authenticated == False %}
+        <li>
           <form method="POST">{% csrf_token %}
           <button type="Submit" style="float:right; margin: 30px; padding:10px;" disabled>Login first</button>
+          </form>
+        </li>
+        {% elif avlbl == False %}
+        <li>
+          <form method="POST">{% csrf_token %}
+          <button type="Submit" style="float:right; margin: 30px; padding:10px;" disabled>Book not avaiable</button>
           </form>
         </li>
 

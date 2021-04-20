@@ -10,7 +10,8 @@
 </head>
 <body>
     <header>
-        <img src="" alt="">
+    <a href="/"><img src="{% static 'DevLibrary.png' %}" alt="" width = "100" ></a>
+        
         <nav>
             <ul class = "nvlinks">
 
@@ -25,7 +26,7 @@
         </nav>
     </header>
     <div class = "searchbar">
-        <form>
+        <form action = "search">
          <input type="text" placeholder="Search...">
          <button type="submit">Submit</button>
         </form>

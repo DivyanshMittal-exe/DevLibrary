@@ -55,6 +55,7 @@ def book_view(request,id,*args,**kwargs):
             "req":req
         }
         obj.Available = False
+        obj.save()
         return render(request,"Books/book.html",content)
     else:
         content={
