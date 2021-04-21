@@ -2,11 +2,13 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from book.models import Issue
+import datetime
 
 # Create your views here.
 def user_view(request,*args,**kwargs):
     bks= Issue.objects.all()
-    return render(request,"User/User.html",{"bks":bks})
+    today = datetime.date.today()
+    return render(request,"User/User.html",{"bks":bks , "today":today})
 
 
 

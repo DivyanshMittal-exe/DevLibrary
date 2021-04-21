@@ -3,6 +3,30 @@ import datetime
 from django.utils import timezone
 
 # Create your models here.
+from django.db import models
+
+# Create your models here.
+# class Rating(models.Model):
+#     rating = models.IntegerField()
+#     userID = models.CharField(max_length=50)
+#     usrrnme = models.CharField(max_length=50,null = True)
+#     bookID = models.CharField(max_length=50)
+#     comment = models.TextField()
+
+class Rates(models.Model):
+    rates = models.IntegerField()
+    userID = models.CharField(max_length=50)
+    bookID = models.CharField(max_length=50)
+    usrrnme = models.CharField(max_length=50,null = True)
+    comment = models.TextField()
+# class Rate(models.Model):
+#     rating = models.IntegerField()
+#     userID = models.CharField(max_length=50)
+#     bookID = models.CharField(max_length=50)
+#     comment = models.TextField()
+
+
+
 class Book(models.Model):
     Title = models.CharField(max_length = 120,null = False)
     Author = models.CharField(max_length = 120)
@@ -18,6 +42,9 @@ class Issue(models.Model):
         ('Requested', 'Requested'),
         ('Issued', 'Issued'),
         ('Returned', 'Returned'),
+        ('Request Extension', 'Request Extension'),
+        ('Extended Issue', 'Extended Issue'),
+        ('Issued/Ext Denied', 'Issued/Ext Denied'),
         ('NA', 'NA')
     ]
     Title = models.CharField(max_length = 120,null = False)
@@ -26,7 +53,7 @@ class Issue(models.Model):
     DoI=models.DateField(auto_now_add=False)
     DoD=models.DateField(auto_now_add=False)
     State = models.CharField(
-        max_length=9,
+        max_length=50,
         choices = Book_state,
         default = 'Requested',
     )

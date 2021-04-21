@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Home.views import home_view
-from Home.views import login_view
+from Home.views import login_view,home_search
 from users.views import signup_view,login_view,logout_view,user_view
-from book.views import book_view,book_from_view #Yes, this is a typo, sorry
+from book.views import book_view,book_from_view,rate_book,return_book_view,req_view,issuereq_view,issue_form_view,reqext_view,reqextyes,reqextno#Yes, this is a typo, sorry
 
 
 
@@ -33,8 +33,17 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('book/', book_view, name='book'),
     path('create/', book_from_view, name='form'),
+    path('createissue/', issue_form_view, name='issform'),   
     path('user/', user_view, name='user'),
     path('book/<int:id>', book_view, name='bview'),
+    path('rate/<int:id>', rate_book, name='rate'),
     path('issue/<int:id>', book_view, name='bview'),
+    path('return/<int:id>', return_book_view, name='rview'),
+    path('issuereq/<int:id>', issuereq_view, name='rview'),
+    path('reqext/<int:id>',reqext_view, name='rview'),
+    path('reqexty/<int:id>',reqextyes, name='rview'),
+    path('reqextn/<int:id>',reqextno, name='rview'),
+    path('req/', req_view, name='reqview'),
+    path('search/', home_search, name='user'),
     path('admin/', admin.site.urls)
 ]

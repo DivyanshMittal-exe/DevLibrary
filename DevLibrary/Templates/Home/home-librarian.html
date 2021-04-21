@@ -15,16 +15,18 @@
             <ul class = "nvlinks">
 
                 {% if user.is_authenticated %}
-                <li><a href="user/">Hello, {{user.username}}</a></li>
-                <li><a href="create/">Add Book</a></li>                
-                <li><a href="logout/">Logout</a></li>
+                <li><a href="/user/">Hello, {{user.username}}</a></li>
+                <li><a href="/create/">Add Book</a></li>
+                <li><a href="/createissue/">Manual Issue</a><li>
+                <li><a href="/req/">View Requests</a><li>                 
+                <li><a href="/logout/">Logout</a></li>
                 {% endif %}
             </ul>
         </nav>
     </header>
     <div class = "searchbar">
-        <form>
-         <input type="text" placeholder="Search...">
+        <form action = "/search/" method = "GET">
+         <input type="text" placeholder="Search..." name="srch" id="srch">
          <button type="submit">Submit</button>
         </form>
     </div>
@@ -49,9 +51,10 @@
                 {% if book.Available %}
                 <td style = "padding: 16px; width:20%;">Available</td>
                 {% else %}
-                <td style = "padding: 16px; width:20%;">Not available</td>
+                <td style = "padding: 16px; width:10%;">Not available</td>
                 {% endif %}
                 <td style = "padding: 16px; width:20%;"><a href ="/book/{{book.id}}">View More</a></td>
+                
             
             </tr>
         

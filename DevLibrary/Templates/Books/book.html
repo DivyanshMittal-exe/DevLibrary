@@ -74,7 +74,30 @@
         </li>
 
     {% endif %}
-    </ul>
+    </ul> 
+    </div>
+
+    <div style="margin-left:auto;margin-right:auto;padding:16px;margin-top:65px;color: white; width:80%;display:block;background-color:black">
+
+    {% if user.is_authenticated and hasNR %}
+        <form action = "/rate/{{id}}" method = "POST" class="rate-area" style = "padding:10px; margin-left:16px">
+        {% csrf_token %}
+        <input type="radio" name="star" value="1" style = "padding:10px; margin-left:16px">1★
+        <input type="radio" name="star" value="2" style = "padding:10px; margin-left:16px">2★
+        <input type="radio" name="star" value="3" style = "padding:10px; margin-left:16px">3★
+        <input type="radio" name="star" value="4" style = "padding:10px; margin-left:16px">4★
+        <input type="radio" name="star" value="5" style = "padding:10px; margin-left:16px">5★
+        <input type="text" placeholder="Add Comment..." name="comm" id="comm">
+        <button type="Submit" style="margin: 30px; padding:10px;"> Rate Book </button>
+        </form>
+       {% endif %} 
+        <p style="margin-left:12px;"> Rating of the book: {{rt}} </p> 
+        <br>
+    {% for rate in ratigs %}
+    <p style="margin-left:24px;">{{rate.usrrnme}} : {{rate.comment}} ({{rate.rates}})</p>
+    
+    {% endfor %}
+
     </div>
     
 
