@@ -1,13 +1,17 @@
+
+<img src = "./DevLibrary/assets/DevLibrary.png" width = "200">
+
+
 Dev Club assignment for creating a Library Management Webapp.
 
-Open DevLibrary folder to view the django files
 
+Open DevLibrary folder to view the django files
 
 # Specification/Requirements covered
 
 1. Register or Login using the portal
 2. View the detail of book on a seperate page
-3. Search for the book in a search bar
+3. Search for the book in a search bar with Title
 4. Place issue request[If issue request placed, book will become unavailable]
 5. Rate the book[Only signed in users can rate once]
 6. Users can view the books they have issued/requested/etc.
@@ -64,3 +68,17 @@ The server is finally up. Command Prompt will now say something like
 ``` Starting development server at http://127.0.0.1:8000/ ```
 
 Simply visit this link in your browser and you are good to go
+
+
+
+# Some screenshots
+
+<img src = "./pics/home.png" width = "300">
+<img src = "./pics/requests.png" width = "300">
+<img src = "./pics/userpanel.png" width = "300">
+<img src = "./pics/book.png" width = "300">
+<img src = "./pics/bookedit.png" width = "300">
+<img src = "./pics/addbook.png" width = "300">
+<img src = "./pics/manualissue.png" width = "300">
+<img src = "./pics/signup.png" width = "300">
+<img src = "./pics/login.png" width = "300">

@@ -16,6 +16,13 @@ def req_view(request,*args,**kwargs):
     if request.user.groups.filter(name="Librarian"):
         return render(request,"Home/req.html",{"issues":issues,"day":datetime.date.today()})
 
+def reject_book_view(request,id,*args,**kwargs):
+    if request.method =='POST':
+        isss = Issue.objects.get(id=id)
+        isss.State = "Rejected Issue"
+        isss.DoD=datetime.datetime.today()
+        isss.save()
+    return redirect('/req')
 
 def reqext_view(request,id,*args,**kwargs):
     if request.method =='POST':
@@ -79,7 +86,7 @@ def edit_save_view(request,id,*args,**kwargs):
         isssbn = request.POST['issbn']
         commenn = request.POST['comme']
         locatt = request.POST['loca']
-        mrknaa = request.POST['mrkna']
+        mrknaa = request.POST['states']
         obj.Title = titlee
         obj.Author = autho
         obj.Publisher=publee
@@ -87,8 +94,16 @@ def edit_save_view(request,id,*args,**kwargs):
         obj.ISBN=isssbn
         obj.Location =locatt
         obj.Comments = commenn
-        if mrknaa == "True":
+        
+        if mrknaa == "Available":
+            obj.Available = True
+            obj.Lost= False
+        elif mrknaa == "Unavailable":
             obj.Available = False
+            obj.Lost= False
+        elif mrknaa == "Lost":
+            obj.Available = False
+            obj.Lost= True 
         
         obj.save()
         

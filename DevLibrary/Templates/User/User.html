@@ -54,16 +54,16 @@
                     {% if bk.State == "Issued" or bk.State == "Extended Issue" or bk.State == "Request Extension" or bk.State == "Issued/Ext Denied"  %}
                     {% if bk.User == user.username %}
                         <tr>
-                            <td scope="row" style = "padding: 16px; width:20%;color:red;">{{bk.Title}}</td>
-                            <td style = "padding: 16px; width:20%;color:red;">{{bk.DoI}}</td>
-                            <td style = "padding: 16px; width:20%;color:red;">{{bk.DoD}}</td>
-                            <td style = "padding: 16px; width:20%;color:red;">{{bk.State}}</td>
-                            <td style = "padding: 16px; width:20%;color:red;">{{bk.Comments}}</td>
-                            <td style = "padding: 16px; width:20%;color:red;">Overdue: Return Immediately</td>  
+                            <td scope="row" style = "padding: 16px; width:20%;color:#e63946;">{{bk.Title}}</td>
+                            <td style = "padding: 16px; width:20%;color:#e63946;">{{bk.DoI}}</td>
+                            <td style = "padding: 16px; width:20%;color:#e63946;">{{bk.DoD}}</td>
+                            <td style = "padding: 16px; width:20%;color:#e63946;">{{bk.State}}</td>
+                            <td style = "padding: 16px; width:20%;color:#e63946;">{{bk.Comments}}</td>
+                            <td style = "padding: 16px; width:20%;color:#e63946;">Overdue: Return Immediately</td>  
                             {% if bk.State == 'Issued' %}
                                 <td style = "padding: 16px; width:20%;">
                                 <form action ="/reqext/{{bk.id}}" method="POST">{% csrf_token %}
-                                <button type="Submit" style="float:right; margin: 30px; padding:10px;">Request Extension</button>
+                                <button type="Submit"  style="margin: 10px; padding:7px 13px;color:#f0f6fc;background-color:#238636;border:none;border-radius:5px;">Request Extension</button>
                                 </form>
                                 </td>
                                 {% endif %}

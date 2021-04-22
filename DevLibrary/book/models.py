@@ -35,6 +35,7 @@ class Book(models.Model):
     ISBN = models.CharField(max_length = 13,null = False) #as int was small, take as char
     Location = models.TextField()
     Available = models.BooleanField(default=True)
+    Lost = models.BooleanField(default=False)
     Comments = models.TextField(null=True)
 
 class Issue(models.Model):
@@ -45,6 +46,7 @@ class Issue(models.Model):
         ('Request Extension', 'Request Extension'),
         ('Extended Issue', 'Extended Issue'),
         ('Issued/Ext Denied', 'Issued/Ext Denied'),
+        ('Rejected Issue', 'Rejected Issue'),
         ('NA', 'NA')
     ]
     Title = models.CharField(max_length = 120,null = False)

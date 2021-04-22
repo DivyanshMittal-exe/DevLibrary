@@ -72,6 +72,10 @@
                 {% csrf_token %}
                     <button type="Submit" style="margin: 10px; padding:7px 13px;color:#f0f6fc;background-color:#238636;border:none;border-radius:5px;"> Issue Book </button>
                 </form>
+                <form action = "/reject/{{issue.id}}" method = "POST">
+                {% csrf_token %}
+                    <button type="Submit" style="margin: 10px; padding:7px 13px;color:#f0f6fc;background-color:#e63946;border:none;border-radius:5px;"> Reject Issue </button>
+                </form>
                 </td>
                 {% elif issue.State == "Request Extension" %}
                 <td style = "padding: 16px; width:10%;">
@@ -81,7 +85,7 @@
                 </form>
                 <form action = "/reqextn/{{issue.id}}" method = "POST">
                 {% csrf_token %}
-                    <button type="Submit" style="margin: 10px; padding:7px 13px;color:#f0f6fc;background-color:#238636;border:none;border-radius:5px;"> Deny Extension </button>
+                    <button type="Submit" style="margin: 10px; padding:7px 13px;color:#f0f6fc;background-color:#e63946;border:none;border-radius:5px;"> Deny Extension </button>
                 </form>
                 </td>
 
