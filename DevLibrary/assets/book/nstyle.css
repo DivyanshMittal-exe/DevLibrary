@@ -40,14 +40,36 @@ header{
     color: #2b768d;
 }
 
-.frm{
-    border: olive 2px solid;
-    padding: 10% 10%;
-    background-color: salmon;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10%;
-    margin-left: 30%;
-    margin-right: 30%;
+.mn{
+    display: block;
+    margin: auto;
+    width: 80%;
+    background-color: #121a1a;
+    margin-top: 20px;
+    padding: 16px;
 }
+
+.mn ul{
+    list-style: none;
+}
+
+.mn ul li p{
+    margin-left: 10px;
+    padding: 20px;
+}
+
+.newbook{
+    display: block;
+    margin: auto;
+    width: 80%;
+    background-color: #121a1a;
+    margin-top: 20px;
+    padding: 32px;
+    color: antiquewhite;
+}
+.newbook .butn{
+    float: right;
+    padding: 10px;
+    margin-right: 32%;
+    margin-top: 32px;
+} 

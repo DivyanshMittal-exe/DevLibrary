@@ -8,8 +8,8 @@
     Homepage
 </title>
 </head>
-<body>
-    <header>
+<body style="color:#f0f6fc;background-color:#090c10">
+    <header >
         <a href="/"><img src="{% static 'DevLibrary.png' %}" alt="" width = "100"></a>
         <nav>
             <ul class = "nvlinks">
@@ -20,7 +20,7 @@
             </ul>
         </nav>
     </header>
-    <div class="usr-dta">
+    <div class="usr-dta" style="color:#f0f6fc;background-color:#0d1117">
         <ul>
         <li>
         <p>Username: {{user.username}}</p>
@@ -35,7 +35,7 @@
     <br>
     <br>
 
-    <table class="table" border = "2px solid white" style="margin-left:auto;margin-right:auto;width:90%;color:white">
+    <table class="table" border = "2px solid white" style="margin-left:auto;margin-right:auto;width:90%;color:#f0f6fc;background-color:#21262d">
         
         <caption>My Books</caption>
         <thead>
@@ -81,7 +81,7 @@
                                 {% if bk.State == 'Issued' %}
                                 <td style = "padding: 16px; width:20%;">
                                 <form action ="/reqext/{{bk.id}}" method="POST">{% csrf_token %}
-                                <button type="Submit" style="float:right; margin: 30px; padding:10px;">Request Extension</button>
+                                <button type="Submit" style="margin: 10px; padding:7px 13px;color:#f0f6fc;background-color:#238636;border:none;border-radius:5px;">Request Extension</button>
                                 </form>
                                 </td>
                                 {% endif %}

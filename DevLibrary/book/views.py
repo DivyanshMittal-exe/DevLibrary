@@ -64,6 +64,35 @@ def return_book_view(request,id,*args,**kwargs):
         isss.save()
     return redirect('/req')
         
+def edit_book_view(request,id,*args,**kwargs):
+    obj=Book.objects.get(id=id)
+    if request.user.groups.filter(name="Librarian"):
+        return render(request,"Books/BookEdit.html",{"id":id,"book":obj})
+
+def edit_save_view(request,id,*args,**kwargs):
+    if request.method =='POST':
+        obj=Book.objects.get(id=id)
+        titlee = request.POST['titl']
+        autho = request.POST['auth']
+        publee = request.POST['publ']
+        genre = request.POST['genr']
+        isssbn = request.POST['issbn']
+        commenn = request.POST['comme']
+        locatt = request.POST['loca']
+        mrknaa = request.POST['mrkna']
+        obj.Title = titlee
+        obj.Author = autho
+        obj.Publisher=publee
+        obj.Genre =genre
+        obj.ISBN=isssbn
+        obj.Location =locatt
+        obj.Comments = commenn
+        if mrknaa == "True":
+            obj.Available = False
+        
+        obj.save()
+        
+    return redirect('/')
 
 def rate_book(request,id,*args,**kwargs):
     if request.method =='POST':

@@ -2,13 +2,13 @@
 
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="{% static 'Home/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Home/stylelib.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
     Homepage
 </title>
 </head>
-<body>
+<body style= "background-color:#090c10;">
     <header>
         <a href="/"><img src="{% static 'DevLibrary.png' %}" alt="" width = "100"></a>
         <nav>
@@ -32,7 +32,7 @@
     </div>
 
     <div>
-    <table class="table" border = "2px solid black" style="margin-left:auto;margin-right:auto;width:90%">
+    <table class="table" border = "2px solid #30363d" style="margin-left:auto;margin-right:auto;width:90%;color:#f0f6fc;background-color:#0d1117">
         <thead>
             <tr>
                 <th style = "padding: 16px; width:20%;">Tile</th>
@@ -51,9 +51,9 @@
                 {% if book.Available %}
                 <td style = "padding: 16px; width:20%;">Available</td>
                 {% else %}
-                <td style = "padding: 16px; width:10%;">Not available</td>
+                <td style = "padding: 16px; width:10%;background-color:#21262d;">Not available</td>
                 {% endif %}
-                <td style = "padding: 16px; width:20%;"><a href ="/book/{{book.id}}">View More</a></td>
+                <td style = "padding: 16px; width:20%;background-color:#21262d;"><a href ="/book/{{book.id}}">View More </a><br><br><a href ="/editbook/{{book.id}}"> Edit Book</a></td>
                 
             
             </tr>

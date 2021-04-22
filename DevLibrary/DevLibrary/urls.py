@@ -18,7 +18,7 @@ from django.urls import path
 from Home.views import home_view
 from Home.views import login_view,home_search
 from users.views import signup_view,login_view,logout_view,user_view
-from book.views import book_view,book_from_view,rate_book,return_book_view,req_view,issuereq_view,issue_form_view,reqext_view,reqextyes,reqextno#Yes, this is a typo, sorry
+from book.views import book_view,book_from_view,rate_book,return_book_view,req_view,issuereq_view,issue_form_view,reqext_view,reqextyes,reqextno,edit_book_view,edit_save_view#Yes, this is a typo, sorry
 
 
 
@@ -36,6 +36,8 @@ urlpatterns = [
     path('createissue/', issue_form_view, name='issform'),   
     path('user/', user_view, name='user'),
     path('book/<int:id>', book_view, name='bview'),
+    path('editbook/<int:id>', edit_book_view, name='editview'),
+    path('editsave/<int:id>', edit_save_view, name='editview'),
     path('rate/<int:id>', rate_book, name='rate'),
     path('issue/<int:id>', book_view, name='bview'),
     path('return/<int:id>', return_book_view, name='rview'),

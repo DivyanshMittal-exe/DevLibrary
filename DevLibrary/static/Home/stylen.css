@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body{
-    background-color: #090c10;
-    color: #f0f6fc;
+    background-color: lightblue;
 }
 
 *{
@@ -112,19 +111,4 @@ table a {
 table a:visited {
     color: #53a6ff;
     text-decoration: none;
-}
-
-table button{
-    float: right;
-    padding: 6px 20px;
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: auto;
-    background: #238636;
-    color: #f0f6fc;
-    font-size: 17px;
-    border-radius: 7px;
-    border: none;
-    cursor: pointer;
-
 }
