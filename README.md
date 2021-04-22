@@ -1,5 +1,7 @@
 Dev Club assignment for creating a Library Management Webapp.
 
+Open DevLibrary folder to view the django files
+
 
 # Specification/Requirements covered
 
@@ -34,6 +36,7 @@ Simply open the command prompt (Type cmd in start menu) or Terminal and navigate
 
 ## Setup a virtual environment
 In the command prompt, run the command
+
 ```pip install virtualenvwrapper-win```
 
 [If the command does not work try reinstalling pip or use ```pip3 install virtualenvwrapper-win ```]
@@ -46,15 +49,18 @@ Inside cmd type
 ### Install django
 
 In the cmd enter 
+
 ``` pip install django``` 
 
 ### Run the server
 
 Navigate to the DevLibrary folder using cmd and inside the folder enter the command
+
 ```python manage.py runserver```
 
 ### Enjoy!!
 The server is finally up. Command Prompt will now say something like
+
 ``` Starting development server at http://127.0.0.1:8000/ ```
 
 Simply visit this link in your browser and you are good to go
