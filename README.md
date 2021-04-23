@@ -38,7 +38,7 @@ Download the source code from github and extract the files
 Simply open the command prompt (Type cmd in start menu) or Terminal and navigate to the directory where you have saved your files
 
 
-## Setup a virtual environment
+### Setup a virtual environment
 In the command prompt, run the command
 
 ```pip install virtualenvwrapper-win```
@@ -73,12 +73,30 @@ Simply visit this link in your browser and you are good to go
 
 # Some screenshots
 
-<img src = "./pics/home.png" width = "300">
-<img src = "./pics/requests.png" width = "300">
-<img src = "./pics/userpanel.png" width = "300">
-<img src = "./pics/book.png" width = "300">
-<img src = "./pics/bookedit.png" width = "300">
-<img src = "./pics/addbook.png" width = "300">
-<img src = "./pics/manualissue.png" width = "300">
-<img src = "./pics/signup.png" width = "300">
-<img src = "./pics/login.png" width = "300">
+<img src = "./pics/home.png" width = "300"><img src = "./pics/requests.png" width = "300"><img src = "./pics/userpanel.png" width = "300">
+
+
+<img src = "./pics/book.png" width = "300"><img src = "./pics/bookedit.png" width = "300"><img src = "./pics/addbook.png" width = "300">
+
+
+<img src = "./pics/manualissue.png" width = "300"><img src = "./pics/signup.png" width = "300"><img src = "./pics/login.png" width = "300">
+
+
+
+
+## Accessing users and dummy data
+1. SuperUser/admin
+    - Username: admin
+    - Password: admin
+1. Librarian
+    - Username: lib1
+    - Password: lib1
+1. Users
+    | Username | Password |
+    |---|---|
+    | user1 | user1 |
+    | user2 | user2 | 
+    | user3 | user3 | 
+    | user4 | user4 |
+    | user5 | user5 |
+    
