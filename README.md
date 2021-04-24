@@ -24,7 +24,11 @@ Open DevLibrary folder to view the django files
 13. Librarian can reject or accept the extension
 14. If issue overdue, shows the entry in red
 15. Nice and appealing dark mode design
-16. Checks for username not taken and email not already reistered 
+16. Checks for username not taken and email not already reistered
+17. Button to show top 4 trending books
+18. Button to sort by trendng 
+19. Button to show only available books
+20. Button to sort by new
 
 # Installation
 

@@ -7,6 +7,7 @@ import datetime
 # Create your views here.
 def user_view(request,*args,**kwargs):
     bks= Issue.objects.all()
+    bks.reverse()
     today = datetime.date.today()
     return render(request,"User/User.html",{"bks":bks , "today":today})
 

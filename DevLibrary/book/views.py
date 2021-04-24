@@ -9,12 +9,67 @@ from .forms import BookForm,IssueForm
 
 # Create your views here.
 
+def avlbl_view(request,*args,**kwargs):
+    books = Book.objects.all()
+    book_list = []
+    for book in books:
+        if book.Available:
+            book_list.append(book)
+    if request.user.groups.filter(name="Librarian"):
+        return render(request,"Home/home-librarian.html",{"books":book_list})
+    else:
+        return render(request,"Home/home.html",{"books":book_list})
+    
+            
 
+
+def sort_rate(request,*args,**kwargs):
+    books = Book.objects.all()
+    book_rate = []
+    for book in books:
+        bookratings = Rates.objects.filter(bookID=book.id)
+        fr = float(0)
+        l = float(0)
+        for rate in bookratings:
+            fr = fr + float(rate.rates)
+            l=l+1
+        if fr!=0:
+            fr = float(fr)/l
+        else:
+            fr = float(0)
+        book_rate.append([book,fr])
+    book_rate.sort(key=lambda x:x[1]) 
+    book_rate.reverse()  
+    book_list= [i[0] for i in book_rate]
+    if request.user.groups.filter(name="Librarian"):
+        return render(request,"Home/home-librarian.html",{"books":book_list})
+    else:
+        return render(request,"Home/home.html",{"books":book_list})
+
+
+
+def trend_view(request,*args,**kwargs):
+    books = Book.objects.all()
+    book_trend = []
+    for book in books:
+        book_trend.append([book,Issue.objects.filter(BookID =book.id).count()])
+    book_trend.sort(key=lambda x:x[1]) 
+    book_print = book_trend[-4:]  
+    book_list= [i[0] for i in book_print]
+    if request.user.groups.filter(name="Librarian"):
+        return render(request,"Home/home-librarian.html",{"books":book_list})
+    else:
+        return render(request,"Home/home.html",{"books":book_list})
+        
 
 def req_view(request,*args,**kwargs):
     issues = Issue.objects.all()
+    issue_list=[]
+    for issue in issues:
+        issue_list.append(issue)
+    issue_list.reverse()
     if request.user.groups.filter(name="Librarian"):
-        return render(request,"Home/req.html",{"issues":issues,"day":datetime.date.today()})
+        return render(request,"Home/req.html",{"issues":issue_list,"day":datetime.date.today()})
 
 def reject_book_view(request,id,*args,**kwargs):
     if request.method =='POST':
@@ -45,6 +100,17 @@ def reqextno(request,id,*args,**kwargs):
         isss.State = "Issued/Ext Denied"
         isss.save()
     return redirect('/req')
+
+def new_view(request,*args,**kwargs):
+    books = Book.objects.all()
+    book_list=[]
+    for book in books:
+        book_list.append(book)
+    book_list.reverse()
+    if request.user.groups.filter(name="Librarian"):
+        return render(request,"Home/home-librarian.html",{"books":book_list})
+    else:
+        return render(request,"Home/home.html",{"books":book_list})
  
   
 def issuereq_view(request,id,*args,**kwargs):
