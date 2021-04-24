@@ -29,6 +29,7 @@ Open DevLibrary folder to view the django files
 18. Button to sort by trendng 
 19. Button to show only available books
 20. Button to sort by new
+21. Option to link to a soft copy 
 
 # Installation
 
