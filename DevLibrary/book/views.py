@@ -153,6 +153,7 @@ def edit_save_view(request,id,*args,**kwargs):
         commenn = request.POST['comme']
         locatt = request.POST['loca']
         mrknaa = request.POST['states']
+        linkk = request.POST['linkbook']
         obj.Title = titlee
         obj.Author = autho
         obj.Publisher=publee
@@ -160,6 +161,7 @@ def edit_save_view(request,id,*args,**kwargs):
         obj.ISBN=isssbn
         obj.Location =locatt
         obj.Comments = commenn
+        obj.SoftCopy = linkk
         
         if mrknaa == "Available":
             obj.Available = True
@@ -247,8 +249,13 @@ def book_view(request,id,*args,**kwargs):
             "loc":obj.Location,
             "comm":obj.Comments,
             "avlbl":obj.Available,
+            "url":obj.SoftCopy,
             "id":obj.id,
-            "req":req
+            "req":req,
+            "ratigs":bookratings,
+            "rt":fr,
+            "url":obj.SoftCopy,
+            "hasNR":hasNotRated
         }
         obj.Available = False
         obj.save()
@@ -285,6 +292,7 @@ def book_view(request,id,*args,**kwargs):
             "req":req,
             "ratigs":bookratings,
             "rt":fr,
+            "url":obj.SoftCopy,
             "hasNR":hasNotRated
         }
         return render(request,"Books/book.html",content)

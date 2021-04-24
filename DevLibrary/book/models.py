@@ -37,6 +37,7 @@ class Book(models.Model):
     Available = models.BooleanField(default=True)
     Lost = models.BooleanField(default=False)
     Comments = models.TextField(null=True)
+    SoftCopy = models.URLField(blank = True, max_length=200)
 
 class Issue(models.Model):
     Book_state = [
