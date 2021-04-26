@@ -3,9 +3,8 @@
 
 
 Dev Club assignment for creating a Library Management Webapp.
-
-
 Open DevLibrary folder to view the django files
+Heroku deployment can be found [here](https://dev-library-iitd.herokuapp.com/)
 
 # Specification/Requirements covered
 

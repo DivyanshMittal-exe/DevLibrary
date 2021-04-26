@@ -74,8 +74,11 @@ def req_view(request,*args,**kwargs):
 def reject_book_view(request,id,*args,**kwargs):
     if request.method =='POST':
         isss = Issue.objects.get(id=id)
+        obj=Book.objects.get(id = isss.BookID)
+        obj.Available = True
         isss.State = "Rejected Issue"
         isss.DoD=datetime.datetime.today()
+        obj.save()
         isss.save()
     return redirect('/req')
 
@@ -97,7 +100,10 @@ def reqextyes(request,id,*args,**kwargs):
 def reqextno(request,id,*args,**kwargs):
     if request.method =='POST':
         isss = Issue.objects.get(id=id)
+        obj=Book.objects.get(id = isss.BookID)
+        obj.Available = True
         isss.State = "Issued/Ext Denied"
+        obj.save()
         isss.save()
     return redirect('/req')
 
@@ -252,10 +258,10 @@ def book_view(request,id,*args,**kwargs):
             "url":obj.SoftCopy,
             "id":obj.id,
             "req":req,
-            "ratigs":bookratings,
-            "rt":fr,
+            #"ratigs":bookratings,
+            #"rt":fr,
             "url":obj.SoftCopy,
-            "hasNR":hasNotRated
+            #"hasNR":hasNotRated
         }
         obj.Available = False
         obj.save()
