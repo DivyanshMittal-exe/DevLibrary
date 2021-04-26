@@ -100,10 +100,9 @@ def reqextyes(request,id,*args,**kwargs):
 def reqextno(request,id,*args,**kwargs):
     if request.method =='POST':
         isss = Issue.objects.get(id=id)
-        obj=Book.objects.get(id = isss.BookID)
-        obj.Available = True
+        
         isss.State = "Issued/Ext Denied"
-        obj.save()
+        
         isss.save()
     return redirect('/req')
 
